@@ -1,24 +1,26 @@
-// declare program variables
-
-// announce the program
 alert("Let's do some math!");
 
-// collect numeric input
-var num1 = prompt("Please type a number");
-num1 = parseFloat(num1);
-var num2 = prompt("Please type another number");
-num2 = parseFloat(num2);
+numbersList = [];
 
-// build an HTML message
-var message = "<h1>Math with the numbers " + num1 + " and " + num2 + "</h1>";
-message += num1 + " + " + num2 + " = " + (num1 + num2);
-message += "<br>";
-message += num1 + " * " + num2 + " = " + (num1 * num2);
-message += "<br>";
-message += num1 + " / " + num2 + " = " + (num1 / num2);
-message += "<br>";
-message += num1 + " - " + num2 + " = " + (num1 - num2);
-  
-// write message to web page
+function collectNumber() {
+    let numberPick = prompt("Choose a number: ");
+    let numberFloat = parseFloat(numberPick);
+        if(numberPick === "0") {
+            alert("Division by 0 is not allowed!");
+            collectNumber();
+        } else {numbersList.push(numberFloat);}
+}
+
+collectNumber();
+collectNumber();
+
+let a = numbersList[0];
+let b = numbersList[1];
+
+let message = `<h1>Math with the numbers ${a} and ${b}.</h1>` + `<br>` + 
+`<p>${a} + ${b} = ${a+b}</p>` +
+`<p>${a} * ${b} = ${a*b}</p>` +
+`<p>${a} / ${b} = ${a/b}</p>` +
+`<p>${a} - ${b} = ${a-b}</p>`;
+
 document.write(message);
-
