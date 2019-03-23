@@ -5,10 +5,10 @@ numbersList = [];
 function collectNumber() {
     let numberPick = prompt("Choose a number: ");
     let numberFloat = parseFloat(numberPick);
-        if(numberPick === "0") {
-            alert("Division by 0 is not allowed!");
+        if((numberPick === "0") || (numberPick === NaN)) {
+            alert("You must enter a number above 0!");
             collectNumber();
-        } else {numbersList.push(numberFloat);}
+        } else {numbersList.push(numberFloat);} 
 }
 
 collectNumber();
