@@ -5,8 +5,11 @@ numbersList = [];
 function collectNumber() {
     let numberPick = prompt("Choose a number: ");
     let numberFloat = parseFloat(numberPick);
-        if((numberPick === "0") || (numberPick === NaN)) {
+        if(numberPick === "0") {
             alert("You must enter a number above 0!");
+            collectNumber();
+        } else if (isNaN(numberPick) === true){
+            alert("You must enter a numerical character!");
             collectNumber();
         } else {numbersList.push(numberFloat);} 
 }
